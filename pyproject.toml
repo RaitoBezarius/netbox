@@ -4,7 +4,9 @@ version = "2.10.8"
 description = ""
 authors = ["Your Name <you@example.com>"]
 license = "Apache"
-packages = [ { include = "*", from = "netbox" } ]
+packages = [
+  { include = "netbox", from = "netbox" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
