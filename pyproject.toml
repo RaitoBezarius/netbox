@@ -5,8 +5,7 @@ description = ""
 authors = ["netbox-community"]
 license = "Apache"
 packages = [
-  { include = "**/*.py", from = "netbox" },
-  { include = "project-static", from = "netbox" }
+  { include = "**/*.py", from = "netbox" }
 ]
 include = [ "netbox/project-static" ]
 
