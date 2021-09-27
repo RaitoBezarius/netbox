@@ -6,7 +6,9 @@ authors = ["netbox-community"]
 license = "Apache"
 packages = [
   { include = "**/*.py", from = "netbox" }
+  { include = "project-static", from = "netbox" }
 ]
+include = [ "netbox/project-static" ]
 
 [tool.poetry.dependencies]
 python = "^3.8"
