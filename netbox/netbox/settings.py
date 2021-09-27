@@ -21,9 +21,6 @@ VERSION = '3.0.4-dev'
 # Hostname
 HOSTNAME = platform.node()
 
-# Set the base directory two levels up
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 # Validate Python version
 if platform.python_version_tuple() < ('3', '7'):
     raise RuntimeError(
@@ -44,6 +41,9 @@ except ModuleNotFoundError as e:
             "Configuration file is not present. Please define netbox/netbox/configuration.py per the documentation."
         )
     raise
+
+# Set the base directory two levels up
+BASE_DIR = getattr(configuration, 'BASE_DIR', os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Warn on removed config parameters
 if hasattr(configuration, 'CACHE_TIMEOUT'):
@@ -352,7 +352,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'netbox.urls'
 
-TEMPLATES_DIR = BASE_DIR + '/templates'
+TEMPLATES_DIR = getattr(configuration, 'TEMPLATES_DIR', BASE_DIR + '/templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
