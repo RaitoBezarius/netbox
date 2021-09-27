@@ -5,7 +5,7 @@ description = ""
 authors = ["Your Name <you@example.com>"]
 license = "Apache"
 packages = [
-  { include = "**", from = "netbox" }
+  { include = "**/*.py", from = "netbox" }
 ]
 
 [tool.poetry.dependencies]
